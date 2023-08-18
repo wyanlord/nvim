@@ -13,7 +13,7 @@ return {
               local jdtls = require("jdtls")
               local root_markers = { "gradlew", "mvnw", ".git" }
               local root_dir = require("jdtls.setup").find_root(root_markers)
-              local mason_pkgs = home .. "/.local/share/nvim/mason/packages"
+              local mason_pkgs = vim.fn.stdpath('data') .. "/mason/packages"
               local workspace_folder = home .. "/.nvim-workspace-root/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
               local bundles = {
                 vim.fn.glob(mason_pkgs .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar"),

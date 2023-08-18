@@ -7,10 +7,9 @@ return {
           vim.api.nvim_create_autocmd("FileType", {
             pattern = "python",
             callback = function()
-              local dap = require("dap")
-              dap.adapters.python = {
+              require("dap").adapters.python = {
                 type = "executable",
-                command = "/usr/bin/python3",
+                command = "python",
                 name = "python",
                 args = { "-m", "debugpy.adapter" },
               }

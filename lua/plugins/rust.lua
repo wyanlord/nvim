@@ -7,11 +7,10 @@ return {
           vim.api.nvim_create_autocmd("FileType", {
             pattern = "rust",
             callback = function()
-              local dap = require("dap")
-              dap.adapters.rust = {
+              require("dap").adapters.codelldb = {
                 type = "executable",
-                command = "/usr/bin/lldb-vscode-13",
-                name = "rust",
+                command = vim.fn.stdpath('data') .. "/mason/packages/codelldb/extension/adapter/codelldb",
+                name = "codelldb",
               }
             end,
           })
